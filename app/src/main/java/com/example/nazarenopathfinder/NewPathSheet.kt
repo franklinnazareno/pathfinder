@@ -2,16 +2,18 @@ package com.example.nazarenopathfinder
 
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.nazarenopathfinder.databinding.FragmentNewPathSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class NewPathSheet(var pathItem: PathItem?) : BottomSheetDialogFragment() {
+class NewPathSheet(var pathItem: PathItem?, private val repository: PathItemRepository) : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentNewPathSheetBinding
     private lateinit var pathViewModel: PathViewModel
@@ -19,7 +21,7 @@ class NewPathSheet(var pathItem: PathItem?) : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity()
-
+        Log.i("TAG", "NewPathSheet ran")
         if (pathItem != null) {
             binding.pathTitle.text = "Edit Path"
             val editable = Editable.Factory.getInstance()
@@ -37,7 +39,8 @@ class NewPathSheet(var pathItem: PathItem?) : BottomSheetDialogFragment() {
             binding.pathTitle.text = "New Path"
         }
 
-        pathViewModel = ViewModelProvider(activity).get(PathViewModel::class.java)
+        pathViewModel = ViewModelProvider(this, PathItemModelFactory(repository)).get(PathViewModel::class.java)
+        Log.i("TAG", "pathViewModel accessed")
         binding.saveButton.setOnClickListener {
             saveAction()
         }
