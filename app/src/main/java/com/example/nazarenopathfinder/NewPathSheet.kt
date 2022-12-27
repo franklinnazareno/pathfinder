@@ -21,7 +21,7 @@ class NewPathSheet(var pathItem: PathItem?) : BottomSheetDialogFragment() {
         val activity = requireActivity()
 
         if (pathItem != null) {
-            binding.pathTitle.text = "Edit Task"
+            binding.pathTitle.text = "Edit Path"
             val editable = Editable.Factory.getInstance()
             binding.name.text = editable.newEditable(pathItem!!.name)
             binding.source.text = editable.newEditable(pathItem!!.source)
@@ -34,7 +34,7 @@ class NewPathSheet(var pathItem: PathItem?) : BottomSheetDialogFragment() {
                 dismiss()
             }
         } else {
-            binding.pathTitle.text = "New Task"
+            binding.pathTitle.text = "New Path"
         }
 
         pathViewModel = ViewModelProvider(activity).get(PathViewModel::class.java)
