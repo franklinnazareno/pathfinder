@@ -3,9 +3,10 @@ package com.example.nazarenopathfinder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nazarenopathfinder.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), PathItemClickListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var pathViewModel: PathViewModel
@@ -16,23 +17,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         pathViewModel = ViewModelProvider(this).get(PathViewModel::class.java)
         binding.newPathButton.setOnClickListener {
-            NewPathSheet().show(supportFragmentManager, "newPathTag")
+            NewPathSheet(null).show(supportFragmentManager, "newPathTag")
         }
+        setRecyclerView()
+    }
 
-        pathViewModel.name.observe(this) {
-            binding.pathName.text = String.format("Path Name: %s", it)
+    private fun setRecyclerView() {
+        val mainActivity = this
+        pathViewModel.pathItems.observe(this) {
+            binding.pathFinderRecyclerView.apply {
+                layoutManager = LinearLayoutManager(applicationContext)
+                adapter = PathItemAdapter(it, mainActivity)
+            }
         }
+    }
 
-        pathViewModel.source.observe(this) {
-            binding.pathSource.text = String.format("Path Source: %s", it)
-        }
-
-        pathViewModel.destination.observe(this) {
-            binding.pathDestination.text = String.format("Path Destination: %s", it)
-        }
-
-        pathViewModel.description.observe(this) {
-            binding.pathDescription.text = String.format("Path Description: %s", it)
-        }
+    override fun editPathItem(pathItem: PathItem) {
+        NewPathSheet(pathItem).show(supportFragmentManager, "newPathTag")
     }
 }
