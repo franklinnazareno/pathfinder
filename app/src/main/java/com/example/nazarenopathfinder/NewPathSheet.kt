@@ -55,7 +55,11 @@ class NewPathSheet(var pathItem: PathItem?) : BottomSheetDialogFragment() {
             val newPath = PathItem(name, source, destination, description)
             pathViewModel.addPathItem(newPath)
         } else {
-            pathViewModel.updatePathItem(pathItem!!.id, name, source, destination, description)
+            pathItem!!.name = name
+            pathItem!!.source = source
+            pathItem!!.destination = destination
+            pathItem!!.description = description
+            pathViewModel.updatePathItem(pathItem!!)
         }
         binding.name.setText("")
         binding.source.setText("")

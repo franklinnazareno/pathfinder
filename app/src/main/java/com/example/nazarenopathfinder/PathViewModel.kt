@@ -1,31 +1,27 @@
 package com.example.nazarenopathfinder
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import kotlinx.coroutines.launch
 import java.util.*
 
-class PathViewModel: ViewModel() {
-    var pathItems = MutableLiveData<MutableList<PathItem>>()
+class PathViewModel(private val repository: PathItemRepository): ViewModel() {
 
-    init {
-        pathItems.value = mutableListOf()
+    var pathItems: LiveData<List<PathItem>> = repository.allPathItems.asLiveData()
+
+    fun addPathItem(newPath: PathItem) = viewModelScope.launch {
+        repository.insertPathItem(newPath)
     }
 
-    fun addPathItem(newPath: PathItem) {
-        val list = pathItems.value
-        list!!.add(newPath)
-        pathItems.postValue(list)
+    fun updatePathItem(pathItem: PathItem) = viewModelScope.launch {
+        repository.updatePathItem(pathItem)
     }
+}
 
-    fun updatePathItem(id: UUID, name: String, source: String, destination: String, description: String) {
-        val list = pathItems.value
-        val path = list!!.find { it.id == id }!!
-        path.name = name
-        path.source = source
-        path.destination = destination
-        path.description = description
-        pathItems.postValue(list)
+class PathItemModelFactory(private val repository: PathItemRepository): ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(PathViewModel::class.java)) {
+            return PathViewModel(repository) as T
+        }
+        throw IllegalArgumentException("Unknown class for view model")
     }
-
-
 }
