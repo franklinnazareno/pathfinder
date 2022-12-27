@@ -26,6 +26,12 @@ class NewPathSheet(var pathItem: PathItem?) : BottomSheetDialogFragment() {
             binding.source.text = editable.newEditable(pathItem!!.source)
             binding.destination.text = editable.newEditable(pathItem!!.destination)
             binding.description.text = editable.newEditable(pathItem!!.description)
+
+            binding.deleteButton.visibility = View.VISIBLE
+            binding.deleteButton.setOnClickListener {
+                pathViewModel.deletePathItem(pathItem!!)
+                dismiss()
+            }
         } else {
             binding.pathTitle.text = "New Task"
         }
