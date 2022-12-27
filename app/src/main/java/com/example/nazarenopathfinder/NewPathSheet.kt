@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.nazarenopathfinder.databinding.FragmentNewPathSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -57,20 +58,30 @@ class NewPathSheet(var pathItem: PathItem?) : BottomSheetDialogFragment() {
         val source = binding.source.text.toString()
         val destination = binding.destination.text.toString()
         val description = binding.description.text.toString()
-        if (pathItem == null) {
+        if (name.isEmpty() || source.isEmpty() || destination.isEmpty() || description.isEmpty()) {
+            val toast = Toast.makeText(this@NewPathSheet.requireActivity(),"Please do not leave any fields blank", Toast.LENGTH_SHORT)
+            toast.show()
+        } else if (pathItem == null) {
             val newPath = PathItem(name, source, destination, description)
             pathViewModel.addPathItem(newPath)
+
+            binding.name.setText("")
+            binding.source.setText("")
+            binding.destination.setText("")
+            binding.description.setText("")
+            dismiss()
         } else {
             pathItem!!.name = name
             pathItem!!.source = source
             pathItem!!.destination = destination
             pathItem!!.description = description
             pathViewModel.updatePathItem(pathItem!!)
+
+            binding.name.setText("")
+            binding.source.setText("")
+            binding.destination.setText("")
+            binding.description.setText("")
+            dismiss()
         }
-        binding.name.setText("")
-        binding.source.setText("")
-        binding.destination.setText("")
-        binding.description.setText("")
-        dismiss()
     }
 }
