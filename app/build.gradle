@@ -59,4 +59,12 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
+
+    implementation 'com.mapbox.maps:android:10.10.0'
+//    implementation "com.mapbox.navigation:android:2.9.5"
+//    implementation "com.mapbox.navigation:ui-dropin:2.9.5"
+
 }

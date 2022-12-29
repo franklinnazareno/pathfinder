@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nazarenopathfinder.databinding.FragmentViewPathBinding
 
@@ -14,8 +17,14 @@ import com.example.nazarenopathfinder.databinding.FragmentViewPathBinding
 class ViewPathFragment : Fragment(), PathItemClickListener {
 
     private lateinit var binding: FragmentViewPathBinding
+    private lateinit var navController: NavController
     private val pathViewModel: PathViewModel by viewModels {
         PathItemModelFactory((activity?.application as PathFinderApplication).repository)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navController = findNavController()
     }
 
     override fun onCreateView(
@@ -50,5 +59,15 @@ class ViewPathFragment : Fragment(), PathItemClickListener {
     override fun editPathItem(pathItem: PathItem) {
         val repository = (activity?.application as PathFinderApplication).repository
         NewPathSheet(pathItem, repository).show(parentFragmentManager, "newPathTag")
+    }
+
+    override fun viewPathDetail(pathItem: PathItem) {
+        val bundle = Bundle().apply {
+            putString("name", pathItem.name)
+            putString("source", pathItem.source)
+            putString("destination", pathItem.destination)
+            putString("description", pathItem.description)
+        }
+        view?.findNavController()?.navigate(R.id.action_viewPathFragment_to_pathDetailFragment, bundle)
     }
 }

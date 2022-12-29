@@ -21,7 +21,6 @@ class NewPathSheet(var pathItem: PathItem?, private val repository: PathItemRepo
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity()
-        Log.i("TAG", "NewPathSheet ran")
         if (pathItem != null) {
             binding.pathTitle.text = "Edit Path"
             val editable = Editable.Factory.getInstance()
@@ -40,7 +39,6 @@ class NewPathSheet(var pathItem: PathItem?, private val repository: PathItemRepo
         }
 
         pathViewModel = ViewModelProvider(this, PathItemModelFactory(repository)).get(PathViewModel::class.java)
-        Log.i("TAG", "pathViewModel accessed")
         binding.saveButton.setOnClickListener {
             saveAction()
         }

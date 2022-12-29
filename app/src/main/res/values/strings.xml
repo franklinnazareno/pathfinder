@@ -5,4 +5,5 @@
     <string name="place_holder">Place Holder</string>
     <string name="map">Map</string>
     <string name="view_path">View Path</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiZnJhbmtsaW5uYXphcmVubyIsImEiOiJjbGM1b2l3aHcwZTk5M3BsN2xkdTlkbmN2In0.9RUgiPoT22QQ6yj5rcFH-w</string>
 </resources>
