@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.nazarenopathfinder.databinding.FragmentPathDetailBinding
-import com.mapbox.maps.MapView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,7 +20,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class PathDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentPathDetailBinding
-    private var mapView: MapView? = null
 
     private var sourceLongitude: Double? = null
     private var sourceLatitude: Double? = null
