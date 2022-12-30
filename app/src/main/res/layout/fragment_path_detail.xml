@@ -1,10 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".PathDetailFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".PathDetailFragment">
+
+        <TextView
+            android:id="@+id/path_src"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="52dp"
+            android:textAlignment="textStart"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Source:\n Loading" />
+
+        <TextView
+            android:id="@+id/path_dest"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="96dp"
+            android:textAlignment="textStart"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/path_src"
+            tools:text="Destination:\n Loading" />
+
+        <TextView
+            android:id="@+id/path_desc"
+            android:layout_width="276dp"
+            android:layout_height="263dp"
+            android:layout_marginTop="84dp"
+            android:textAlignment="textStart"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.474"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            tools:text="Loading" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="83dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="52dp"
+            android:src="@drawable/ic_baseline_directions_walk_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="81dp"
+            android:layout_height="81dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintEnd_toStartOf="@+id/path_dest"
+            app:layout_constraintHorizontal_bias="0.578"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/viewNavButton"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:text="View Navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/path_desc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</FrameLayout>
+</layout>

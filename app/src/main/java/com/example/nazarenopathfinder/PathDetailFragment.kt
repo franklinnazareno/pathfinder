@@ -36,59 +36,69 @@ class PathDetailFragment : Fragment() {
 
         val source = arguments?.getString("source")
         val destination = arguments?.getString("destination")
+        val description = arguments?.getString("description")
 
+        binding.pathSrc.text = "Source:\n$source"
+        binding.pathDest.text = "Destination:\n$destination"
+        binding.pathDesc.text = description
 
         var BaseUrl = "https://api.mapbox.com/"
         var access_token = resources.getString(R.string.mapbox_access_token)
 
         val retrofit = Retrofit.Builder().baseUrl(BaseUrl).addConverterFactory(GsonConverterFactory.create()).build()
         val service = retrofit.create(GeocodingService::class.java)
-        val callSource = service.getGeocodingResponse(source!!, access_token)
-        callSource.enqueue(object: Callback<GeocodingResponse> {
-            override fun onResponse(call: Call<GeocodingResponse>, response: Response<GeocodingResponse>) {
-                if (response.code() == 200) {
-                    val geoCodingResponse = response.body()!!
+        fun getNavigation() {
+            val callSource = service.getGeocodingResponse(source!!, access_token)
+            callSource.enqueue(object: Callback<GeocodingResponse> {
+                override fun onResponse(call: Call<GeocodingResponse>, response: Response<GeocodingResponse>) {
+                    if (response.code() == 200) {
+                        val geoCodingResponse = response.body()!!
 
-                    sourceLongitude = geoCodingResponse.features?.get(0)?.center?.get(0)
-                    sourceLatitude = geoCodingResponse.features?.get(0)?.center?.get(1)
+                        sourceLongitude = geoCodingResponse.features?.get(0)?.center?.get(0)
+                        sourceLatitude = geoCodingResponse.features?.get(0)?.center?.get(1)
 
-                    val callDestination = service.getGeocodingResponse(destination!!, access_token)
-                    callDestination.enqueue(object: Callback<GeocodingResponse> {
-                        override fun onResponse(call: Call<GeocodingResponse>, response: Response<GeocodingResponse>) {
-                            if (response.code() == 200) {
-                                val geoCodingResponse = response.body()!!
+                        val callDestination = service.getGeocodingResponse(destination!!, access_token)
+                        callDestination.enqueue(object: Callback<GeocodingResponse> {
+                            override fun onResponse(call: Call<GeocodingResponse>, response: Response<GeocodingResponse>) {
+                                if (response.code() == 200) {
+                                    val geoCodingResponse = response.body()!!
 
-                                destinationLongitude = geoCodingResponse.features?.get(0)?.center?.get(0)
-                                destinationLatitude = geoCodingResponse.features?.get(0)?.center?.get(1)
+                                    destinationLongitude = geoCodingResponse.features?.get(0)?.center?.get(0)
+                                    destinationLatitude = geoCodingResponse.features?.get(0)?.center?.get(1)
 
 
-                                if (sourceLongitude == null || sourceLatitude == null || destinationLongitude == null || destinationLatitude == null) {
-                                    val toast = Toast.makeText(requireActivity(),"Error occurred. Cannot retrieve path from source to destination", Toast.LENGTH_SHORT)
-                                    toast.show()
-                                } else {
-                                    val url = "http://maps.google.com/maps?saddr=" + sourceLatitude + "," + sourceLongitude + "&daddr=" + destinationLatitude + "," + destinationLongitude + "&dirflg=w"
-                                    val intent = Intent(
-                                        Intent.ACTION_VIEW,
-                                        Uri.parse(url)
-                                    )
-                                    startActivity(intent)
+                                    if (sourceLongitude == null || sourceLatitude == null || destinationLongitude == null || destinationLatitude == null) {
+                                        val toast = Toast.makeText(requireActivity(),"Error occurred. Cannot retrieve path from source to destination", Toast.LENGTH_SHORT)
+                                        toast.show()
+                                    } else {
+                                        val url = "http://maps.google.com/maps?saddr=" + sourceLatitude + "," + sourceLongitude + "&daddr=" + destinationLatitude + "," + destinationLongitude + "&dirflg=w"
+                                        val intent = Intent(
+                                            Intent.ACTION_VIEW,
+                                            Uri.parse(url)
+                                        )
+                                        startActivity(intent)
+                                    }
+
                                 }
-
                             }
-                        }
-                        override fun onFailure(call: Call<GeocodingResponse>, t: Throwable) {
-                            val toast = Toast.makeText(requireActivity(),t.message, Toast.LENGTH_SHORT)
-                            toast.show()
-                        }
-                    })
+                            override fun onFailure(call: Call<GeocodingResponse>, t: Throwable) {
+                                val toast = Toast.makeText(requireActivity(),t.message, Toast.LENGTH_SHORT)
+                                toast.show()
+                            }
+                        })
 
+                    }
                 }
-            }
-            override fun onFailure(call: Call<GeocodingResponse>, t: Throwable) {
-                val toast = Toast.makeText(requireActivity(),t.message, Toast.LENGTH_SHORT)
-                toast.show()
-            }
-        })
+                override fun onFailure(call: Call<GeocodingResponse>, t: Throwable) {
+                    val toast = Toast.makeText(requireActivity(),t.message, Toast.LENGTH_SHORT)
+                    toast.show()
+                }
+            })
+        }
+
+        binding.viewNavButton.setOnClickListener {
+            getNavigation()
+        }
 
         return binding.root
     }
