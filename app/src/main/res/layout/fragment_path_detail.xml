@@ -36,8 +36,8 @@
 
         <TextView
             android:id="@+id/path_desc"
-            android:layout_width="276dp"
-            android:layout_height="263dp"
+            android:layout_width="190dp"
+            android:layout_height="215dp"
             android:layout_marginTop="84dp"
             android:textAlignment="textStart"
             android:textSize="12sp"

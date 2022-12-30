@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.nazarenopathfinder.databinding.FragmentNewPathSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 

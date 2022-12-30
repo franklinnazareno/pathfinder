@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.nazarenopathfinder.HomeFragment"
-        android:label="fragment_home"
+        android:label="PathFinder"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_viewPathFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/viewPathFragment"
         android:name="com.example.nazarenopathfinder.ViewPathFragment"
-        android:label="fragment_view_path"
+        android:label="List of Paths"
         tools:layout="@layout/fragment_view_path" >
         <action
             android:id="@+id/action_viewPathFragment_to_pathDetailFragment"
@@ -26,6 +26,6 @@
     <fragment
         android:id="@+id/pathDetailFragment"
         android:name="com.example.nazarenopathfinder.PathDetailFragment"
-        android:label="fragment_path_detail"
+        android:label="Loading"
         tools:layout="@layout/fragment_path_detail" />
 </navigation>

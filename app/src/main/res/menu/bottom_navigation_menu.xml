@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/menu_add"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="Add Path" />
+    <item
+        android:id="@+id/menu_view_path"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_view_list_24"
+        android:title="View Path" />
+</menu>

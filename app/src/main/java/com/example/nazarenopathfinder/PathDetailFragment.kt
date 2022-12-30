@@ -9,7 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.nazarenopathfinder.databinding.FragmentPathDetailBinding
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,6 +31,7 @@ class PathDetailFragment : Fragment() {
     private var destinationLongitude: Double? = null
     private var destinationLatitude: Double? = null
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,9 +39,13 @@ class PathDetailFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentPathDetailBinding.inflate(inflater, container, false)
 
+        val name = arguments?.getString("name")
         val source = arguments?.getString("source")
         val destination = arguments?.getString("destination")
         val description = arguments?.getString("description")
+
+        val actionBar = (activity as AppCompatActivity).supportActionBar
+        actionBar?.title = name
 
         binding.pathSrc.text = "Source:\n$source"
         binding.pathDest.text = "Destination:\n$destination"
