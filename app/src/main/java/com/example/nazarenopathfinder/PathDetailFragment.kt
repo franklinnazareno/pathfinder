@@ -79,6 +79,9 @@ class PathDetailFragment : Fragment() {
                                         startActivity(intent)
                                     }
 
+                                } else {
+                                    val toast = Toast.makeText(requireActivity(),response.errorBody().toString(), Toast.LENGTH_SHORT)
+                                    toast.show()
                                 }
                             }
                             override fun onFailure(call: Call<GeocodingResponse>, t: Throwable) {
@@ -87,6 +90,9 @@ class PathDetailFragment : Fragment() {
                             }
                         })
 
+                    } else {
+                        val toast = Toast.makeText(requireActivity(),response.errorBody().toString(), Toast.LENGTH_SHORT)
+                        toast.show()
                     }
                 }
                 override fun onFailure(call: Call<GeocodingResponse>, t: Throwable) {
