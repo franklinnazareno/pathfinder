@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -38,6 +39,12 @@ class ViewPathFragment : Fragment(), PathItemClickListener {
         binding.newPathButton.setOnClickListener {
             val repository = (activity?.application as PathFinderApplication).repository
             NewPathSheet(null, repository).show(parentFragmentManager, "newPathTag")
+        }
+
+        binding.clearPathsButton.setOnClickListener {
+            pathViewModel.deleteAllPathItems()
+            val toast = Toast.makeText(requireActivity(),"Deleted all paths successfully", Toast.LENGTH_SHORT)
+            toast.show()
         }
 
         // Set up the recycler view

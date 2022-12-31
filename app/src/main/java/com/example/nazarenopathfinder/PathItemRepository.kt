@@ -20,4 +20,9 @@ class PathItemRepository(private val pathItemDao: PathItemDao) {
     suspend fun deletePathItem(pathItem: PathItem) {
         pathItemDao.deletePathItem(pathItem)
     }
+
+    @WorkerThread
+    suspend fun deleteAllPathItems() {
+        pathItemDao.deleteAllPathItems()
+    }
 }

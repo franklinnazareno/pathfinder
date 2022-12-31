@@ -2,6 +2,9 @@ package com.example.nazarenopathfinder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -22,6 +25,26 @@ class MainActivity : AppCompatActivity(){
         drawerLayout = binding.drawerLayout
         val navController = findNavController(R.id.myNavHostFragment)
 
+        val navigationView: NavigationView = binding.navView
+
+        navigationView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.homeFragment -> {
+                    navController.navigate(R.id.homeFragment)
+                }
+                R.id.viewPathFragment -> {
+                    navController.navigate(R.id.viewPathFragment)
+                }
+                R.id.faqFragment -> {
+                    navController.navigate(R.id.faqFragment)
+                }
+                R.id.aboutUsFragment -> {
+                    navController.navigate(R.id.aboutUsFragment)
+                }
+            }
+            true
+        }
+
         bottomNavigationView = findViewById(R.id.bottom_navigation)
 
         bottomNavigationView.setOnItemSelectedListener { item ->
@@ -39,11 +62,33 @@ class MainActivity : AppCompatActivity(){
         }
 
         NavigationUI.setupActionBarWithNavController(this,navController,drawerLayout)
+        NavigationUI.setupWithNavController(binding.navView,navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)
         return NavigationUI.navigateUp(navController,drawerLayout)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.options_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        when (item.itemId) {
+            R.id.faqFragment -> {
+                navController.navigate(R.id.faqFragment)
+                return true
+            }
+            R.id.aboutUsFragment -> {
+                navController.navigate(R.id.aboutUsFragment)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
 }

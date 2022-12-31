@@ -21,4 +21,8 @@ interface PathItemDao {
 
     @Delete
     suspend fun deletePathItem(pathItem: PathItem)
+
+    @Query("DELETE FROM path_item_table")
+    suspend fun deleteAllPathItems()
+
 }

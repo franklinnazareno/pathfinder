@@ -19,6 +19,10 @@ class PathViewModel(private val repository: PathItemRepository): ViewModel() {
     fun deletePathItem(pathItem: PathItem) = viewModelScope.launch {
         repository.deletePathItem(pathItem)
     }
+
+    fun deleteAllPathItems() = viewModelScope.launch {
+        repository.deleteAllPathItems()
+    }
 }
 
 class PathItemModelFactory(private val repository: PathItemRepository): ViewModelProvider.Factory {

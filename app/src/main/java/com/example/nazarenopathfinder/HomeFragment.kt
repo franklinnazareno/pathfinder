@@ -29,6 +29,11 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
 
+        binding.addPathButton.setOnClickListener {
+            val repository = (activity?.application as PathFinderApplication).repository
+            NewPathSheet(null, repository).show(parentFragmentManager, "newPathTag")
+        }
+
         binding.viewPathButton.setOnClickListener {
             view: View -> view.findNavController().navigate(R.id.action_homeFragment_to_viewPathFragment)
         }
