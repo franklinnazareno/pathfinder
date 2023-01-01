@@ -14,5 +14,10 @@
         android:title="FAQs" />
     <item
         android:id="@+id/aboutUsFragment"
+        android:icon="@drawable/ic_baseline_groups_24"
         android:title="About Us" />
+    <item
+        android:id="@+id/logoutItem"
+        android:icon="@drawable/ic_baseline_logout_24"
+        android:title="Log Out" />
 </menu>

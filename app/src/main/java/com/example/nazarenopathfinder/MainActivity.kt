@@ -1,12 +1,17 @@
 package com.example.nazarenopathfinder
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.nazarenopathfinder.databinding.ActivityMainBinding
@@ -16,7 +21,9 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity(){
 
     private lateinit var drawerLayout: DrawerLayout
-    lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var navigationView: NavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,23 +32,34 @@ class MainActivity : AppCompatActivity(){
         drawerLayout = binding.drawerLayout
         val navController = findNavController(R.id.myNavHostFragment)
 
-        val navigationView: NavigationView = binding.navView
+        navigationView = findViewById(R.id.navView)
 
-        navigationView.setNavigationItemSelectedListener {
-            when (it.itemId) {
+        navigationView.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
                 R.id.homeFragment -> {
                     navController.navigate(R.id.homeFragment)
+                    drawerLayout.closeDrawer(GravityCompat.START)
                 }
                 R.id.viewPathFragment -> {
                     navController.navigate(R.id.viewPathFragment)
+                    drawerLayout.closeDrawer(GravityCompat.START)
                 }
                 R.id.faqFragment -> {
                     navController.navigate(R.id.faqFragment)
+                    drawerLayout.closeDrawer(GravityCompat.START)
                 }
                 R.id.aboutUsFragment -> {
                     navController.navigate(R.id.aboutUsFragment)
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                }
+                R.id.logoutItem -> {
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    this.finish()
+                    startActivity(intent)
                 }
             }
+            NavigationUI.onNavDestinationSelected(item, navController)
             true
         }
 
@@ -54,7 +72,6 @@ class MainActivity : AppCompatActivity(){
                     val repository = (application as PathFinderApplication).repository
                     val newPathSheet = NewPathSheet(null, repository)
                     newPathSheet.show(supportFragmentManager, "newPathTag")
-
                 }
                 R.id.menu_view_path -> navController.navigate(R.id.viewPathFragment)
             }
@@ -62,7 +79,6 @@ class MainActivity : AppCompatActivity(){
         }
 
         NavigationUI.setupActionBarWithNavController(this,navController,drawerLayout)
-        NavigationUI.setupWithNavController(binding.navView,navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -90,5 +106,4 @@ class MainActivity : AppCompatActivity(){
             else -> return super.onOptionsItemSelected(item)
         }
     }
-
 }

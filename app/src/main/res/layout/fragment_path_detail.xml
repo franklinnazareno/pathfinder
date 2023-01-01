@@ -10,11 +10,12 @@
 
         <TextView
             android:id="@+id/path_src"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="52dp"
             android:textAlignment="textStart"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -24,19 +25,20 @@
 
         <TextView
             android:id="@+id/path_dest"
-            android:layout_width="120dp"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_marginTop="56dp"
-            android:layout_marginEnd="96dp"
+            android:layout_marginEnd="148dp"
             android:textAlignment="textStart"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/path_src"
-            tools:text="Destination:\n Loading"
-            style="@style/TextAppearance.AppCompat.Title"/>
+            tools:text="Destination:\n Loading" />
 
         <TextView
             android:id="@+id/path_desc"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="215dp"
             android:layout_marginTop="84dp"
             android:textAlignment="textStart"
