@@ -40,6 +40,12 @@ class MainActivity : AppCompatActivity(){
                     navController.navigate(R.id.homeFragment)
                     drawerLayout.closeDrawer(GravityCompat.START)
                 }
+                R.id.newPathItem -> {
+                    val repository = (application as PathFinderApplication).repository
+                    val newPathSheet = NewPathSheet(null, repository)
+                    newPathSheet.show(supportFragmentManager, "newPathTag")
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                }
                 R.id.viewPathFragment -> {
                     navController.navigate(R.id.viewPathFragment)
                     drawerLayout.closeDrawer(GravityCompat.START)
