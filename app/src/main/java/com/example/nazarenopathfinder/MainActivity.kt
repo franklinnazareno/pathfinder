@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity(){
                 R.id.newPathItem -> {
                     val repository = (application as PathFinderApplication).repository
                     val newPathSheet = NewPathSheet(null, repository)
+                    navController.navigate(R.id.viewPathFragment)
                     newPathSheet.show(supportFragmentManager, "newPathTag")
                     drawerLayout.closeDrawer(GravityCompat.START)
                 }
@@ -77,6 +78,7 @@ class MainActivity : AppCompatActivity(){
                 R.id.menu_add -> {
                     val repository = (application as PathFinderApplication).repository
                     val newPathSheet = NewPathSheet(null, repository)
+                    navController.navigate(R.id.viewPathFragment)
                     newPathSheet.show(supportFragmentManager, "newPathTag")
                 }
                 R.id.menu_view_path -> navController.navigate(R.id.viewPathFragment)

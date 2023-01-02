@@ -31,6 +31,7 @@ class HomeFragment : Fragment() {
 
         binding.addPathButton.setOnClickListener {
             val repository = (activity?.application as PathFinderApplication).repository
+            navController.navigate(R.id.viewPathFragment)
             NewPathSheet(null, repository).show(parentFragmentManager, "newPathTag")
         }
 
