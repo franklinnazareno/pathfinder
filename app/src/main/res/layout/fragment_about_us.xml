@@ -7,29 +7,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/aboutUs"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="96dp"
-            android:gravity="center"
-            android:text="About Us"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/franklinImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="176dp"
             android:src="@drawable/franklin_nazareno"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.557"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aboutUs" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/aboutUsDescription"

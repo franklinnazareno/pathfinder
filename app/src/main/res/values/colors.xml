@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="tabBackgrounColor">#EEE</color>
+    <color name="green_500">#43A047</color>
+    <color name="green_700">#388E3C</color>
+    <color name="green_200">#C8E6C9</color>
+    <color name="green_300">#81C784</color>
 </resources>

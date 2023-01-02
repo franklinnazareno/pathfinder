@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/loginTitle"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="114dp"
@@ -60,7 +60,7 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txtAdvise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

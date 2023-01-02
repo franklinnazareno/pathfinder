@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         tools:context=".PathDetailFragment">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/path_src"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="120dp"
@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Source:\n Loading" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/path_dest"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="120dp"
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:text="Destination:\n Loading" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/path_desc"
             android:layout_width="wrap_content"
             android:layout_height="215dp"
