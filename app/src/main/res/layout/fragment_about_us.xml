@@ -9,29 +9,50 @@
 
 
         <ImageView
-            android:id="@+id/franklinImg"
+            android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="176dp"
-            android:src="@drawable/franklin_nazareno"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.557"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="68dp"
+            android:src="@drawable/circle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/green_3" />
+
+        <ImageView
+            android:layout_width="277dp"
+            android:layout_height="242dp"
+            android:layout_marginStart="80dp"
+            android:src="@drawable/card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            app:tint="@color/green_3" />
 
         <TextView
             android:id="@+id/aboutUsDescription"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="197dp"
             android:layout_height="103dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="148dp"
             android:gravity="center"
-            android:text="This application was created by\n Franklin Nazareno."
+            android:text="This application is created by\n Franklin Nazareno."
+            android:textColor="@color/white"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/franklinImg" />
+
+        <ImageView
+            android:id="@+id/franklinImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="176dp"
+            android:src="@drawable/franklin_nazareno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.542"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

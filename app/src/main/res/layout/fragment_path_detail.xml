@@ -8,15 +8,48 @@
         android:layout_height="match_parent"
         tools:context=".PathDetailFragment">
 
+        <ImageView
+            android:layout_width="312dp"
+            android:layout_height="314dp"
+            android:layout_marginStart="48dp"
+            android:src="@drawable/card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/green_500"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="317dp"
+            android:layout_height="108dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="32dp"
+            android:scaleX="2"
+            android:src="@drawable/card"
+            app:tint="@color/green_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="317dp"
+            android:layout_height="108dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="32dp"
+            android:scaleX="2"
+            android:src="@drawable/card"
+            app:tint="@color/green_500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/path_src"
             style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="157dp"
+            android:layout_height="87dp"
             android:layout_marginTop="44dp"
-            android:layout_marginEnd="96dp"
+            android:layout_marginEnd="56dp"
             android:textAlignment="textStart"
             android:textSize="12sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Source:\n Loading" />
@@ -24,24 +57,25 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/path_dest"
             style="@style/TextAppearance.AppCompat.Title"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="96dp"
+            android:layout_width="158dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="56dp"
             android:textAlignment="textStart"
             android:textSize="12sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:text="Destination:\n Loading" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/path_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="215dp"
-            android:layout_marginTop="84dp"
+            android:layout_width="261dp"
+            android:layout_height="166dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="80dp"
             android:textAlignment="textStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.474"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             tools:text="Loading" />
@@ -53,6 +87,7 @@
             android:layout_marginStart="64dp"
             android:layout_marginTop="44dp"
             android:src="@drawable/ic_baseline_directions_walk_24"
+            app:tint="@color/yellow_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,8 +96,9 @@
             android:layout_width="81dp"
             android:layout_height="81dp"
             android:layout_marginStart="64dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="64dp"
             android:src="@drawable/ic_baseline_location_on_24"
+            app:tint="@color/yellow_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -72,7 +108,7 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:text="View Navigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"

@@ -6,35 +6,161 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="51dp">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="336dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="100dp"
+            android:scaleX="3"
+            android:src="@drawable/card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/green_3" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="471dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="1dp"
+            android:scaleX="2.5"
+            android:src="@drawable/card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="336dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="52dp"
+            android:scaleX="3"
+            android:src="@drawable/card"
+            app:layout_constraintStart_toStartOf="@+id/faq2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            app:tint="@color/green_3" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="471dp"
+            android:layout_height="83dp"
+            android:scaleX="2.5"
+            android:src="@drawable/card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="336dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="48dp"
+            android:scaleX="3"
+            android:src="@drawable/card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10"
+            app:tint="@color/green_3" />
+
+        <ImageView
+            android:layout_width="471dp"
+            android:layout_height="83dp"
+            android:scaleX="2.5"
+            android:src="@drawable/card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView11"
+            app:tint="@color/white"
+            tools:layout_editor_absoluteX="-29dp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/faq1"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="100dp"
             android:gravity="center"
-            android:text="What does this app do?"
+            android:text="What is PathFinder?"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/answer1"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="303dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="It is an application where you can find the most optimal path when walking."
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/faq1" />
+
+        <TextView
+            android:id="@+id/faq2"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="120dp"
             android:gravity="center"
-            android:text="This is where you can store your list of paths. It utilizes Mapbox API for geocoding, then is inputted to Google Maps to get your navigation!"
+            android:text="How to get started?"
             android:textAlignment="center"
-            android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@id/answer1" />
+
+        <TextView
+            android:id="@+id/answer2"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="300dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text='"Click on "Add Path" to add your desired route. All you need to enter is the "Title", "Source", "Destination", and "Description" of the said path. Once that set, you can view the details of your path and view its navigation, which will open Google Maps on your browser."'
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/faq2" />
+
+        <TextView
+            android:id="@+id/faq3"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="120dp"
+            android:gravity="center"
+            android:text="What is the tech behind this?"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/answer2" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="323dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="It is created with Kotlin for Android and the API is powered by Mapbox, for Geocoding, and Google Maps, for navigation."
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/faq3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

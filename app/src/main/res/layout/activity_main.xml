@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -41,6 +42,7 @@
             android:layout_height="match_parent"
             android:id="@+id/navView"
             android:layout_gravity="start"
+            app:headerLayout="@layout/nav_header"
             app:menu="@menu/nav_drawer"/>
 
     </androidx.drawerlayout.widget.DrawerLayout>
