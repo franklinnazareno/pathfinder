@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.nazarenopathfinder.databinding.FragmentRegisterBinding
+import kotlinx.coroutines.launch
 
 class RegisterFragment(): Fragment() {
 
@@ -43,25 +45,31 @@ class RegisterFragment(): Fragment() {
         val lastName = binding.entryLastName.text.toString()
         val email = binding.entryEmail.text.toString()
         val password = binding.entryPassword.text.toString()
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            val toast = Toast.makeText(requireActivity(),"Please do not leave any fields blank", Toast.LENGTH_SHORT)
-            toast.show()
-        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            val toast = Toast.makeText(requireActivity(),"Please enter a valid email", Toast.LENGTH_SHORT)
-            toast.show()
-        } else if (password.length < 8) {
-            val toast = Toast.makeText(requireActivity(),"Password must be at least 8 characters long", Toast.LENGTH_SHORT)
-            toast.show()
-        } else {
-            val newUser = User(firstName, lastName, email, password)
-            userViewModel.register(newUser)
-            binding.entryFirstName.setText("")
-            binding.entryLastName.setText("")
-            binding.entryEmail.setText("")
-            binding.entryPassword.setText("")
-            val toast = Toast.makeText(requireActivity(),"Registration successful! Now login your newly created account!", Toast.LENGTH_SHORT)
-            toast.show()
-            navController.navigate(R.id.loginFragment)
+        userViewModel.viewModelScope.launch {
+            val user = userViewModel.login(email)
+            if (user != null) {
+                val toast = Toast.makeText(requireActivity(),"An account is already associated with this email.", Toast.LENGTH_SHORT)
+                toast.show()
+            } else if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                val toast = Toast.makeText(requireActivity(),"Please do not leave any fields blank", Toast.LENGTH_SHORT)
+                toast.show()
+            } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                val toast = Toast.makeText(requireActivity(),"Please enter a valid email", Toast.LENGTH_SHORT)
+                toast.show()
+            } else if (password.length < 8) {
+                val toast = Toast.makeText(requireActivity(),"Password must be at least 8 characters long", Toast.LENGTH_SHORT)
+                toast.show()
+            } else {
+                val newUser = User(firstName, lastName, email, password)
+                userViewModel.register(newUser)
+                binding.entryFirstName.setText("")
+                binding.entryLastName.setText("")
+                binding.entryEmail.setText("")
+                binding.entryPassword.setText("")
+                val toast = Toast.makeText(requireActivity(),"Registration successful! Now login your newly created account!", Toast.LENGTH_SHORT)
+                toast.show()
+                navController.navigate(R.id.loginFragment)
+            }
         }
     }
 

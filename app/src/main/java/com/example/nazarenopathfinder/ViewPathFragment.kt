@@ -1,7 +1,6 @@
 package com.example.nazarenopathfinder
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +19,7 @@ class ViewPathFragment : Fragment(), PathItemClickListener {
     private lateinit var binding: FragmentViewPathBinding
     private lateinit var navController: NavController
     private val pathViewModel: PathViewModel by viewModels {
-        PathItemModelFactory((activity?.application as PathFinderApplication).repository)
+        PathItemModelFactory((activity?.application as PathFinderApplication).pathItemRepository)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,7 +36,7 @@ class ViewPathFragment : Fragment(), PathItemClickListener {
 
         // Set the click listener for the new path button
         binding.newPathButton.setOnClickListener {
-            val repository = (activity?.application as PathFinderApplication).repository
+            val repository = (activity?.application as PathFinderApplication).pathItemRepository
             NewPathSheet(null, repository).show(parentFragmentManager, "newPathTag")
         }
 
@@ -64,7 +63,7 @@ class ViewPathFragment : Fragment(), PathItemClickListener {
     }
 
     override fun editPathItem(pathItem: PathItem) {
-        val repository = (activity?.application as PathFinderApplication).repository
+        val repository = (activity?.application as PathFinderApplication).pathItemRepository
         NewPathSheet(pathItem, repository).show(parentFragmentManager, "newPathTag")
     }
 

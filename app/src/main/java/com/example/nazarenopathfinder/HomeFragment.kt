@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.nazarenopathfinder.databinding.FragmentHomeBinding
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -30,7 +28,7 @@ class HomeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater, R.layout.fragment_home, container, false)
 
         binding.addPathButton.setOnClickListener {
-            val repository = (activity?.application as PathFinderApplication).repository
+            val repository = (activity?.application as PathFinderApplication).pathItemRepository
             navController.navigate(R.id.viewPathFragment)
             NewPathSheet(null, repository).show(parentFragmentManager, "newPathTag")
         }

@@ -3,15 +3,12 @@ package com.example.nazarenopathfinder
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.nazarenopathfinder.databinding.ActivityMainBinding
@@ -41,7 +38,7 @@ class MainActivity : AppCompatActivity(){
                     drawerLayout.closeDrawer(GravityCompat.START)
                 }
                 R.id.newPathItem -> {
-                    val repository = (application as PathFinderApplication).repository
+                    val repository = (application as PathFinderApplication).pathItemRepository
                     val newPathSheet = NewPathSheet(null, repository)
                     navController.navigate(R.id.viewPathFragment)
                     newPathSheet.show(supportFragmentManager, "newPathTag")
@@ -76,7 +73,7 @@ class MainActivity : AppCompatActivity(){
             when (item.itemId) {
                 R.id.menu_home -> navController.navigate(R.id.homeFragment)
                 R.id.menu_add -> {
-                    val repository = (application as PathFinderApplication).repository
+                    val repository = (application as PathFinderApplication).pathItemRepository
                     val newPathSheet = NewPathSheet(null, repository)
                     navController.navigate(R.id.viewPathFragment)
                     newPathSheet.show(supportFragmentManager, "newPathTag")
