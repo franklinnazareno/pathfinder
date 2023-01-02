@@ -46,6 +46,9 @@ class RegisterFragment(): Fragment() {
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
             val toast = Toast.makeText(requireActivity(),"Please do not leave any fields blank", Toast.LENGTH_SHORT)
             toast.show()
+        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            val toast = Toast.makeText(requireActivity(),"Please enter a valid email", Toast.LENGTH_SHORT)
+            toast.show()
         } else if (password.length < 8) {
             val toast = Toast.makeText(requireActivity(),"Password must be at least 8 characters long", Toast.LENGTH_SHORT)
             toast.show()
