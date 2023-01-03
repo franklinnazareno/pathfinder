@@ -19,4 +19,14 @@
         android:name="com.example.nazarenopathfinder.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.nazarenopathfinder.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/faqFragment"
+        android:name="com.example.nazarenopathfinder.FaqFragment"
+        android:label="fragment_faq"
+        tools:layout="@layout/fragment_faq" />
 </navigation>

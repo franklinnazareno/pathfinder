@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
     tools:context=".FaqFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -89,6 +90,7 @@
             android:layout_marginTop="100dp"
             android:gravity="center"
             android:text="What is PathFinder?"
+            android:textColor="@color/white"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -117,6 +119,7 @@
             android:layout_marginTop="120dp"
             android:gravity="center"
             android:text="How to get started?"
+            android:textColor="@color/white"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -144,6 +147,7 @@
             android:layout_marginTop="120dp"
             android:gravity="center"
             android:text="What is the tech behind this?"
+            android:textColor="@color/white"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

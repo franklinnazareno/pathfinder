@@ -4,19 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".LoginActivity">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <fragment
-            android:id="@+id/myNavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/login_navigation"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:background="@color/green_500"
+                android:theme="@style/Theme.NazarenoPathFinder.NoActionBar"
+                app:titleTextColor="@color/white"
+                android:layout_alignParentTop="true"
+                app:title="@string/app_name" />
+
+            <fragment
+                android:id="@+id/myNavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_below="@id/toolbar"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/login_navigation"/>
+
+        </RelativeLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>
