@@ -2,9 +2,9 @@
 
 Welcome to the earlier iteration of the Pathfinder for Pedestrians mobile application, a precursor to the advanced version available on [Google PlayStore](https://play.google.com/store/apps/details?id=com.jovelites.pathfinder).
 
-## Journey Back in Time
+## History
 
-My project to satisfy the "Emerging Technologies 3 in CpE (Mobile Computing)" course. This early build of Pathfinder for Pedestrians marked the genesis of a remarkable navigation solution.
+My project to satisfy the requirements for "Emerging Technologies 3 in CpE (Mobile Computing)" course. This early build of Pathfinder for Pedestrians marked the genesis of a remarkable navigation solution.
 
 ## Technological Foundation
 
