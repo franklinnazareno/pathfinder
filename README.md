@@ -2,6 +2,10 @@
 
 Welcome to the earlier iteration of the Pathfinder for Pedestrians mobile application, a precursor to the advanced version available on [Google PlayStore](https://play.google.com/store/apps/details?id=com.jovelites.pathfinder).
 
+## Demo
+
+[![[DEMO] Kotlin Mobile Application: Pathfinder for Pedestrians](https://github.com/user-attachments/assets/eb04dc32-f8c6-42a8-a5ad-898963f0ffee)](https://www.youtube.com/watch?v=EUeVo0euy5k)
+
 ## Overview
 
 The Pathfinder for Pedestrians is a dynamic project developed around early 2023 as part of the "Emerging Technologies 3 in CPE (Mobile Computing)" course. This early build of Pathfinder for Pedestrians marked the genesis of a remarkable navigation solution.
